@@ -21,7 +21,9 @@ class CopyFactory extends Factory
     {
         return [
             'book_id' => Book::all()->random()->id,
-            'user_id' => User::all()->random()->id,
+            'hardcovered' => $this->faker->boolean,
+            'publication' => $this->faker->date,
+            'status' => $this->faker->numberBetween(0, 1),
         ];
     }
 }
