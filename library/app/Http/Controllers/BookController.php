@@ -16,6 +16,8 @@ class BookController extends Controller
         return Book::all();
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -30,6 +32,12 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         //
+        $book = Book::create($request->validated());
+
+        return response()->json([
+            'message' => 'Book successfully created!',
+            'data' => $book
+        ], 201);
     }
 
     /**
